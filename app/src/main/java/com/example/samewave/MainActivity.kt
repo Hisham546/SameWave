@@ -12,35 +12,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.example.samewave.ui.SameWaveApp
 import com.example.samewave.ui.navigation.NavGraph
 import com.example.samewave.ui.theme.SameWaveTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             SameWaveTheme {
-                val navController = rememberNavController()
-
-                NavGraph(navController)
+              SameWaveApp()
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SameWaveTheme {
-        Greeting("Android")
-    }
-}
