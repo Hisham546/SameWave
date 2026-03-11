@@ -113,12 +113,7 @@ fun WelcomeScreen(navController: NavHostController){
         Button(
             onClick = {
                 coroutineScope.launch {
-                    navController.navigate("login")
-//                    try {
-//
-//                    } finally {
-//                        //navController.navigate("home_screen")
-//                    }
+                    navController.navigate("auth_options")
                 }
             },
             shape = RoundedCornerShape(20.dp),
