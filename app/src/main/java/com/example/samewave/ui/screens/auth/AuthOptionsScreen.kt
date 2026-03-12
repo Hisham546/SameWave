@@ -83,7 +83,7 @@ fun AuthOptionsScreen(navController: NavHostController){
                 )
                 // SUBTITLE
                 Text(
-                    text = "Pick up your conversations and find your vibe again.",
+                    text = "Create an account or sign in to continue.",
                     color = Color.Gray,
                     fontWeight = FontWeight.W400,
                     fontSize = 14.sp,
