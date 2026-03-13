@@ -1,5 +1,6 @@
 package com.example.samewave.ui.screens.auth
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,10 +12,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.SentimentSatisfied
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -33,48 +36,39 @@ import kotlinx.coroutines.launch
 @Composable
 fun AuthOptionsScreen(navController: NavHostController){
     val coroutineScope = rememberCoroutineScope()
+
+
     Column (
         modifier = Modifier
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
-
-
     ){
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(80.dp),
-            contentAlignment = Alignment.CenterStart
+            contentAlignment = Alignment.Center
         ){
-            IconButton(onClick = { navController.popBackStack() },
-                modifier = Modifier
-                    .padding(16.dp)
-                    .size(56.dp) // <--- Increases the touch target area
-            ) {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Back",
-                    modifier = Modifier.size(26.dp), // <--- Increases the actual arrow icon
-                    tint = Color.Black
+                    imageVector =Icons.Filled.SentimentSatisfied,
+                    contentDescription = "smile",
+                    modifier = Modifier.size(56.dp), // <--- Increases the actual arrow icon
+                    tint = Color(0xFF4CAF50)
                 )
-            }
         }
         Box(
             modifier = Modifier
-                .weight(0.6f) // This takes up all available space
-
+                .weight(0.3f) // This takes up all available space
                 .fillMaxWidth(),
-            //   contentAlignment = Alignment.Center // Centers the text inside that space
+               contentAlignment = Alignment.Center // Centers the text inside that space
         ) {
             Column (
-                modifier = Modifier
-                    .padding(horizontal = 32.dp)
-                ,
-                horizontalAlignment = Alignment.CenterHorizontally
-
+                modifier = Modifier,
+               horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = "Let's Get Started",
+                    style = MaterialTheme.typography.headlineLarge,
                     color = Color.Black,
                     fontWeight = FontWeight.W300,
                     fontSize = 20.sp,
@@ -92,13 +86,12 @@ fun AuthOptionsScreen(navController: NavHostController){
                 )
             }
         }
-
-
-
         Column (modifier = Modifier
             .fillMaxWidth()
+            .weight(0.7f)
             .padding(bottom = 40.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
             Button(
                 onClick = {
@@ -119,7 +112,17 @@ fun AuthOptionsScreen(navController: NavHostController){
                     fontSize = 12.sp
                 )
             }
-            Spacer(modifier = Modifier.height(15.dp))
+            // Use a fixed Spacer or Arrangement.spacedBy for small elements
+            Spacer(modifier = Modifier.height(16.dp))
+
+                Text(
+                    text = "Already have an account?",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 12.sp
+                )
+
+            Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = {
                     coroutineScope.launch {
